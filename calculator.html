@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="buttons">
+            <input type="text" placeholder="0" id="output">
+            <button onclick="del()">Del</button>
+            <button onclick="back()">←</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calculate()" class="equal">=</button>
+            
+        </div>
+        
+    </div>
+    <script>
+        let screen = document.getElementById('output')
+
+        function display(num) {
+            screen.value += num
+        }
+        function calculate() {
+            try {
+                screen.value = eval(screen.value)
+            }
+            catch {
+                alert("Invalid Expression")
+            }
+        }
+        function del() {
+            screen.value = screen.value.slice(0, -1)
+        }
+        function back() {
+            screen.value = ""
+        }
+    </script>
+</body>
+
+</html>
